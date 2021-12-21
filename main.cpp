@@ -3,8 +3,7 @@
 
 using namespace std;
 
-template<class T> class Queue
-{
+template<class T> class Queue {
 public:
 	int front;
 	int rear;
