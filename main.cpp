@@ -1,5 +1,5 @@
 #include<iostream>
-#define MAXVALUE 101 //≈• size
+#define MAXVALUE 101 //ÌÅê size
 
 using namespace std;
 
@@ -11,67 +11,52 @@ public:
 	int size;
 	T *values;
 
-	Queue()
-	{
-		size = MAXVALUE;
+	Queue() { size = MAXVALUE;
 		values = new T[size];
 		front = 0;
 		rear = 0;
 	}
-	~Queue()
-	{
+	~Queue() {
 		delete[] values;
 	}
 
-	void push(T value)
-	{
-		if(!isFull())
-		{
+	void push(T value) {
+		if(!isFull()) {
 			values[rear] = value;
 			rear = (rear + 1) % size;
 		}
-		else
-			cout << "≈•ø° µ•¿Ã≈Õ∞° ≥ π´ ∏πΩ¿¥œ¥Ÿ." << endl;
+		else cout << "ÌÅêÏóê Îç∞Ïù¥ÌÑ∞Í∞Ä ÎÑàÎ¨¥ ÎßéÏäµÎãàÎã§." << endl;
 	}
 
-	void pop()
-	{
-		if(!empty())
-			front = (front + 1) % size;
-		else
-			cout << "≈•ø° µ•¿Ã≈Õ∞° æ¯Ω¿¥œ¥Ÿ." << endl;
+	void pop() {
+		if(!empty()) front = (front + 1) % size;
+		else cout << "ÌÅêÏóê Îç∞Ïù¥ÌÑ∞Í∞Ä ÏóÜÏäµÎãàÎã§." << endl;
 	}
 
-	bool empty()
-	{
-		if(rear == front)
-			return true;
-		else 
-			return false;
+	bool empty() {
+		if(rear == front) return true;
+		else return false;
 	}
 
-	bool isFull()
-	{
-		if((rear + 1) % size == front) 
-			return true;
-		else 
-			return false;
+	bool isFull() {
+		if((rear + 1) % size == front)  return true;
+		else return false;
 	}
 };
 
 template<typename T>
-ostream& operator <<(ostream &out, Queue<T> &q){
+ostream& operator <<(ostream &out, Queue<T> &q) {
 	T *temp = q.values;
-	out << "æ’ [ ";
-	for(int i=q.front; i<q.rear; i++){
+	out << "Ïïû [ ";
+	for(int i=q.front; i<q.rear; i++) {
 	    out << temp[i];
 	    if(i < q.rear-1) out << " | ";
 	}
-	out << " ] µ⁄" << endl;
+	out << " ] Îí§" << endl;
     return out;
 }
-
 Queue<int> q;
+
 int qpush(int number) {
 	q.push(number);
 }
@@ -79,6 +64,7 @@ int qpush(int number) {
 void qpop() {
 	q.pop();
 }
+
 int main() {
 	int select = 0;
 	int number = 0;
@@ -93,8 +79,7 @@ int main() {
 			qpop();
 			cout << q;
 		} else {
-			cout << "¡§»Æ«— º±≈√¿ª «ÿ¡÷ººø‰." << endl;
+			cout << "Ï†ïÌôïÌïú ÏÑ†ÌÉùÏùÑ Ìï¥Ï£ºÏÑ∏Ïöî." << endl;
 		}
 	}
-
 }
